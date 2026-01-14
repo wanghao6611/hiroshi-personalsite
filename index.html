@@ -226,16 +226,24 @@
       </div>
 
       <nav class="nav-links" aria-label="主导航">
-        <a href="#services">服务</a>
-        <a href="#work">作品</a>
-        <a href="#about">关于</a>
-        <a href="#contact">联系</a>
-      </nav>
+  <a href="#services" data-i18n="nav.services">服务</a>
+  <a href="#work" data-i18n="nav.work">案例</a>
+  <a href="#about" data-i18n="nav.about">关于</a>
+  <a href="#contact" data-i18n="nav.contact">联系</a>
+</nav>
 
-      <div style="display:flex; gap:10px; align-items:center;">
-        <button class="btn" id="themeBtn" type="button" title="切换主题">主题</button>
-        <a class="btn primary" href="#contact">加微信联系</a>
-      </div>
+
+     <div style="display:flex; gap:10px; align-items:center; flex-wrap:wrap;">
+  <div style="display:flex; gap:8px; align-items:center;">
+    <button class="btn" id="langZh" type="button" title="中文">中</button>
+    <button class="btn" id="langJa" type="button" title="日本語">日</button>
+    <button class="btn" id="langEn" type="button" title="English">EN</button>
+  </div>
+
+  <button class="btn" id="themeBtn" type="button" title="切换主题" data-i18n="ui.theme">主题</button>
+  <a class="btn primary" href="#contact" data-i18n="nav.cta">加微信联系</a>
+</div>
+
     </div>
   </header>
 
@@ -243,18 +251,18 @@
     <!-- HERO -->
     <div class="hero">
       <section class="card hero-main" aria-label="简介">
-        <div class="kicker">个人主页｜可合作｜可长期</div>
-        <h1>如果您在东京需要一位靠谱的人，<br>那我们可以认真聊聊。</h1>
+        <div class="kicker" data-i18n="hero.kicker">个人主页｜可合作｜可长期</div>
+        <h1 data-i18n="hero.title">如果您在东京需要一位靠谱的人，<br>那我们可以认真聊聊。</h1>
 
-<p>
+<p data-i18n="hero.p1">
   我提供中 / 日 / 英三语服务，涵盖医疗医美与旅游翻译，可全程随行协助。<br><br>
   同时，也可协助对接日本院线美容产品、保健品。<br>
   若您有更具体的需求，我也可以帮您牵线、沟通、推进。
 </p>
 
-<p class="small"><strong>不拼低价，不搞套路。</strong><br>做得好，比做得多重要。</p>
+<p class="small" data-i18n="hero.p2"><strong>不拼低价，不搞套路。</strong><br>做得好，比做得多重要。</p>
 
-<p class="small">我不太擅长花言巧语，<br>但擅长把事情一件一件理清楚。</p>
+<p class="small" data-i18n="hero.p3">我不太擅长花言巧语，<br>但擅长把事情一件一件理清楚。</p>
 
 
         <div class="badges">
@@ -265,8 +273,8 @@
         </div>
 
         <div class="cta">
-          <a class="btn primary" href="#contact">加我微信，先把事情说清楚</a>
-          <a class="btn" href="#services">我能帮您做什么</a>
+          <a class="btn primary" href="#contact" data-i18n="hero.cta1">加我微信，先把事情说清楚</a>
+          <a class="btn" href="#services" data-i18n="hero.cta2">我能帮您做什么</a>
           <a class="btn" href="https://github.com/" target="_blank" rel="noreferrer">GitHub（可选）</a>
         </div>
 
@@ -276,6 +284,15 @@
       </section>
 
       <aside class="card hero-side" aria-label="关键信息">
+        <div style="display:flex; align-items:center; gap:12px; margin-bottom:14px;">
+  <img src="profile.jpg" alt="樋口 浩 头像"
+       style="width:72px;height:72px;border-radius:18px;object-fit:cover;border:1px solid var(--line);" />
+  <div>
+    <div style="font-weight:900; font-size:16px;">樋口 浩</div>
+    <div class="small">东京｜中日英翻译｜地接与对接</div>
+  </div>
+</div>
+
         <div class="mini">
           <div class="row">
             <div>
@@ -319,7 +336,7 @@
     <!-- SERVICES -->
     <section id="services">
       <div class="section-title">
-        <h2>服务</h2>
+        <h2 data-i18n="sec.services">服务</h2>
         <div class="hint"></div>
       </div>
       <div class="grid">
@@ -392,7 +409,7 @@
     <!-- ABOUT -->
     <section id="about">
       <div class="section-title">
-        <h2>关于我</h2>
+        <h2 data-i18n="sec.about">关于我</h2>
         
       </div>
 
@@ -484,7 +501,7 @@
     <!-- CONTACT -->
     <section id="contact">
       <div class="section-title">
-        <h2>联系我</h2>
+        <h2 data-i18n="sec.contact">联系我</h2>
         
       </div>
 
@@ -614,10 +631,120 @@ if (copyBtn) {
     }
   });
 }
+<script>
+  // ... 你原有的 theme / year / copyTemplate 代码都保留在上面
+
+  // ===== i18n (ZH/JA/EN) =====
+  const LANG_KEY = "site_lang";
+
+  const i18n = {
+    zh: {
+      "ui.theme": "主题",
+      "nav.cta": "加微信联系",
+      "nav.services": "服务",
+      "nav.work": "案例",
+      "nav.about": "关于",
+      "nav.contact": "联系",
+
+      "hero.kicker": "个人主页｜可合作｜可长期",
+      "hero.title": "如果您在东京需要一位靠谱的人，<br>那我们可以认真聊聊。",
+      "hero.p1": "我提供中 / 日 / 英三语服务，涵盖医疗医美与旅游翻译，可全程随行协助。<br><br>同时，也可协助对接日本院线美容产品、保健品。<br>若您有更具体的需求，我也可以帮您牵线、沟通、推进。",
+      "hero.p2": "<strong>不拼低价，不搞套路。</strong><br>做得好，比做得多重要。",
+      "hero.p3": "我不太擅长花言巧语，<br>但擅长把事情一件一件理清楚。",
+      "hero.cta1": "加我微信，先把事情说清楚",
+      "hero.cta2": "我能帮您做什么",
+
+      "sec.services": "服务",
+      "sec.about": "关于我",
+      "sec.contact": "联系我",
+    },
+
+    ja: {
+      "ui.theme": "テーマ",
+      "nav.cta": "WeChatで連絡",
+      "nav.services": "サービス",
+      "nav.work": "実績",
+      "nav.about": "自己紹介",
+      "nav.contact": "連絡",
+
+      "hero.kicker": "個人ページ｜ご相談可｜長期対応可",
+      "hero.title": "東京で「信頼できる人」をお探しなら、<br>一度きちんとお話ししませんか。",
+      "hero.p1": "中・日・英の三言語で対応します。医療・美容医療の通訳／旅行関連の通訳まで、行程に同行してサポート可能です。<br><br>日本の院内専売コスメ・サプリ等の手配やご相談にも対応します。<br>個別のご要望があれば、必要な方との橋渡し・調整・推進も行います。",
+      "hero.p2": "<strong>安さ勝負はしません。駆け引きも不要です。</strong><br>“量”より“質”。",
+      "hero.p3": "口先より、整理と実行。<br>一つずつ、確実に進めます。",
+      "hero.cta1": "WeChatで要件を整理する",
+      "hero.cta2": "できることを見る",
+
+      "sec.services": "サービス",
+      "sec.about": "自己紹介",
+      "sec.contact": "連絡先",
+    },
+
+    en: {
+      "ui.theme": "Theme",
+      "nav.cta": "Contact (WeChat)",
+      "nav.services": "Services",
+      "nav.work": "Cases",
+      "nav.about": "About",
+      "nav.contact": "Contact",
+
+      "hero.kicker": "Personal site | Available | Long-term OK",
+      "hero.title": "If you need a reliable person in Tokyo,<br>let’s talk properly.",
+      "hero.p1": "I provide Chinese/Japanese/English support for medical & aesthetic interpreting and travel-related assistance, including full itinerary accompaniment.<br><br>I can also help source and coordinate Japan-based clinic-grade cosmetics and supplements.<br>If your request is specific, I can facilitate introductions, communication, and execution.",
+      "hero.p2": "<strong>No low-price games. No gimmicks.</strong><br>Quality matters more than quantity.",
+      "hero.p3": "Not big on fancy words—<br>strong on clarity and execution.",
+      "hero.cta1": "Add me on WeChat first",
+      "hero.cta2": "What I can do",
+
+      "sec.services": "Services",
+      "sec.about": "About",
+      "sec.contact": "Contact",
+    },
+  };
+
+  function applyLang(lang) {
+    const dict = i18n[lang] || i18n.zh;
+
+    document.querySelectorAll("[data-i18n]").forEach((el) => {
+      const key = el.getAttribute("data-i18n");
+      const val = dict[key];
+      if (val !== undefined) el.innerHTML = val;
+    });
+
+    // highlight active
+    const zhBtn = document.getElementById("langZh");
+    const jaBtn = document.getElementById("langJa");
+    const enBtn = document.getElementById("langEn");
+    [zhBtn, jaBtn, enBtn].forEach((b) => b && b.classList.remove("primary"));
+    if (lang === "zh" && zhBtn) zhBtn.classList.add("primary");
+    if (lang === "ja" && jaBtn) jaBtn.classList.add("primary");
+    if (lang === "en" && enBtn) enBtn.classList.add("primary");
+
+    localStorage.setItem(LANG_KEY, lang);
+    document.documentElement.setAttribute("lang", lang === "zh" ? "zh-CN" : lang);
+  }
+
+  function detectLang() {
+    const saved = localStorage.getItem(LANG_KEY);
+    if (saved && i18n[saved]) return saved;
+    const n = (navigator.language || "").toLowerCase();
+    if (n.startsWith("ja")) return "ja";
+    if (n.startsWith("en")) return "en";
+    return "zh";
+  }
+
+  document.getElementById("langZh")?.addEventListener("click", () => applyLang("zh"));
+  document.getElementById("langJa")?.addEventListener("click", () => applyLang("ja"));
+  document.getElementById("langEn")?.addEventListener("click", () => applyLang("en"));
+
+  // init
+  applyLang(detectLang());
+</script>
 
   </script>
 </body>
 </html>
+
 
 
 
