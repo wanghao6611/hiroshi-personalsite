@@ -1,0 +1,520 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>你的名字｜个人网站</title>
+  <meta name="description" content="你的定位一句话：中日英翻译｜日本地接｜跨境销售｜用结果说话" />
+  <meta name="keywords" content="翻译,日语,英语,日本,地接,包车,导游,跨境" />
+  <meta name="author" content="你的名字" />
+  <meta property="og:title" content="你的名字｜个人网站" />
+  <meta property="og:description" content="你的定位一句话：中日英翻译｜日本地接｜跨境销售｜用结果说话" />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#0b1220" />
+
+  <style>
+    :root{
+      --bg: #0b1220;
+      --card: rgba(255,255,255,0.06);
+      --text: rgba(255,255,255,0.92);
+      --muted: rgba(255,255,255,0.68);
+      --line: rgba(255,255,255,0.12);
+      --brand: #7dd3fc;
+      --brand2:#a78bfa;
+      --shadow: 0 18px 45px rgba(0,0,0,0.35);
+      --radius: 18px;
+      --max: 1080px;
+      --font: ui-sans-serif, system-ui, -apple-system, "Segoe UI", "PingFang SC",
+              "Hiragino Sans GB", "Microsoft YaHei", Arial, "Noto Sans CJK SC", sans-serif;
+    }
+    [data-theme="light"]{
+      --bg: #f7f8fb;
+      --card: rgba(0,0,0,0.04);
+      --text: rgba(0,0,0,0.86);
+      --muted: rgba(0,0,0,0.62);
+      --line: rgba(0,0,0,0.10);
+      --brand: #0ea5e9;
+      --brand2:#7c3aed;
+      --shadow: 0 16px 40px rgba(0,0,0,0.12);
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:var(--font);
+      color:var(--text);
+      background:
+        radial-gradient(1200px 600px at 15% 10%, rgba(125,211,252,0.18), transparent 55%),
+        radial-gradient(900px 600px at 85% 0%, rgba(167,139,250,0.16), transparent 55%),
+        radial-gradient(900px 600px at 60% 90%, rgba(34,197,94,0.08), transparent 55%),
+        var(--bg);
+      letter-spacing:0.2px;
+    }
+    a{color:inherit;text-decoration:none}
+    .container{max-width:var(--max); margin:0 auto; padding:24px;}
+    .nav{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter: blur(12px);
+      background: linear-gradient(to bottom, rgba(0,0,0,0.25), transparent);
+      border-bottom:1px solid var(--line);
+    }
+    [data-theme="light"] .nav{
+      background: linear-gradient(to bottom, rgba(247,248,251,0.85), rgba(247,248,251,0.55));
+    }
+    .nav-inner{display:flex; align-items:center; justify-content:space-between; gap:12px;}
+    .brand{
+      display:flex; align-items:center; gap:10px; font-weight:800;
+    }
+    .logo{
+      width:34px; height:34px; border-radius:12px;
+      background: linear-gradient(135deg, var(--brand), var(--brand2));
+      box-shadow: var(--shadow);
+    }
+    .nav-links{display:flex; gap:16px; flex-wrap:wrap; justify-content:flex-end}
+    .nav-links a{color:var(--muted); font-weight:600; font-size:14px}
+    .nav-links a:hover{color:var(--text)}
+    .btn{
+      border:1px solid var(--line);
+      background: rgba(255,255,255,0.06);
+      color:var(--text);
+      padding:10px 12px;
+      border-radius:14px;
+      font-weight:700;
+      font-size:14px;
+      display:inline-flex; align-items:center; gap:8px;
+      cursor:pointer;
+    }
+    [data-theme="light"] .btn{background: rgba(0,0,0,0.03);}
+    .btn.primary{
+      border-color: transparent;
+      background: linear-gradient(135deg, var(--brand), var(--brand2));
+      color: rgba(0,0,0,0.85);
+    }
+    .btn:hover{transform: translateY(-1px)}
+    .btn:active{transform: translateY(0px)}
+    .hero{
+      display:grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap:22px;
+      padding:34px 0 10px;
+      align-items:stretch;
+    }
+    @media (max-width: 880px){
+      .hero{grid-template-columns:1fr; padding-top:22px;}
+      .nav-links{display:none}
+    }
+    .card{
+      border:1px solid var(--line);
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+    .hero-main{padding:26px 24px}
+    .kicker{color:var(--muted); font-weight:700; font-size:13px}
+    h1{margin:10px 0 12px; font-size:40px; line-height:1.15}
+    @media (max-width: 420px){ h1{font-size:34px} }
+    .subtitle{color:var(--muted); font-size:16px; line-height:1.7; margin:0 0 16px}
+    .badges{display:flex; flex-wrap:wrap; gap:10px; margin:16px 0 18px}
+    .badge{
+      padding:8px 10px; border-radius:999px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,0.04);
+      color:var(--muted);
+      font-weight:700; font-size:13px;
+    }
+    [data-theme="light"] .badge{background: rgba(0,0,0,0.02);}
+    .cta{display:flex; flex-wrap:wrap; gap:10px; margin-top:14px}
+    .hero-side{padding:20px}
+    .mini{
+      display:flex; flex-direction:column; gap:12px;
+    }
+    .mini .row{
+      display:flex; justify-content:space-between; gap:10px; align-items:center;
+      padding:12px; border-radius:14px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,0.04);
+    }
+    [data-theme="light"] .mini .row{background: rgba(0,0,0,0.02);}
+    .label{color:var(--muted); font-weight:700; font-size:13px}
+    .value{font-weight:800}
+    section{padding:22px 0}
+    .section-title{display:flex; align-items:end; justify-content:space-between; gap:14px; margin:0 0 12px}
+    h2{margin:0; font-size:22px}
+    .hint{color:var(--muted); font-size:14px}
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:14px;
+    }
+    @media (max-width: 880px){ .grid{grid-template-columns:1fr} }
+    .item{padding:18px}
+    .item h3{margin:0 0 8px; font-size:16px}
+    .item p{margin:0; color:var(--muted); line-height:1.7; font-size:14px}
+    .tagrow{display:flex; flex-wrap:wrap; gap:8px; margin-top:12px}
+    .tag{font-size:12px; font-weight:800; color:var(--muted); padding:6px 9px; border-radius:999px; border:1px solid var(--line)}
+    .two{
+      display:grid; grid-template-columns: 1fr 1fr; gap:14px;
+    }
+    @media (max-width: 880px){ .two{grid-template-columns:1fr} }
+    .list{display:flex; flex-direction:column; gap:10px}
+    .li{
+      display:flex; align-items:flex-start; gap:10px;
+      padding:14px; border-radius:16px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,0.04);
+    }
+    [data-theme="light"] .li{background: rgba(0,0,0,0.02);}
+    .dot{
+      width:10px; height:10px; margin-top:6px; border-radius:999px;
+      background: linear-gradient(135deg, var(--brand), var(--brand2));
+      flex:0 0 auto;
+    }
+    .footer{
+      padding:26px 0 40px;
+      border-top:1px solid var(--line);
+      margin-top:18px;
+      color:var(--muted);
+      font-size:13px;
+    }
+    .contact{
+      display:grid; grid-template-columns: 1.1fr 0.9fr; gap:14px;
+    }
+    @media (max-width: 880px){ .contact{grid-template-columns:1fr} }
+    .contact .card{padding:18px}
+    .contact a.link{color:var(--text); font-weight:800; text-decoration:underline; text-underline-offset:4px}
+    .qrbox{
+      display:flex; gap:14px; align-items:center; flex-wrap:wrap;
+    }
+    .qr{
+      width:120px; height:120px; border-radius:18px;
+      border:1px dashed var(--line);
+      display:flex; align-items:center; justify-content:center;
+      color:var(--muted); font-weight:800; font-size:12px;
+      background: rgba(255,255,255,0.03);
+    }
+    [data-theme="light"] .qr{background: rgba(0,0,0,0.02);}
+    .small{font-size:12px; color:var(--muted); line-height:1.6}
+    .mobilebar{
+      display:none;
+      position:fixed; left:0; right:0; bottom:0; z-index:60;
+      backdrop-filter: blur(12px);
+      background: rgba(0,0,0,0.35);
+      border-top:1px solid var(--line);
+    }
+    [data-theme="light"] .mobilebar{background: rgba(247,248,251,0.8);}
+    .mobilebar .inner{
+      display:flex; gap:10px; justify-content:space-between; padding:12px 16px;
+      max-width:var(--max); margin:0 auto;
+    }
+    .mobilebar a{flex:1; text-align:center; padding:10px 10px; border-radius:14px; border:1px solid var(--line); color:var(--muted); font-weight:800; font-size:13px;}
+    .mobilebar a:hover{color:var(--text)}
+    @media (max-width: 880px){ .mobilebar{display:block} }
+  </style>
+</head>
+
+<body>
+  <header class="nav">
+    <div class="container nav-inner">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <div>
+          <div style="font-size:14px; line-height:1.1;">你的名字</div>
+          <div style="font-size:12px; color:var(--muted); font-weight:700;">中日英翻译｜日本地接｜跨境销售</div>
+        </div>
+      </div>
+
+      <nav class="nav-links" aria-label="主导航">
+        <a href="#services">服务</a>
+        <a href="#work">作品</a>
+        <a href="#about">关于</a>
+        <a href="#contact">联系</a>
+      </nav>
+
+      <div style="display:flex; gap:10px; align-items:center;">
+        <button class="btn" id="themeBtn" type="button" title="切换主题">主题</button>
+        <a class="btn primary" href="#contact">快速联系</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- HERO -->
+    <div class="hero">
+      <section class="card hero-main" aria-label="简介">
+        <div class="kicker">个人主页｜可合作｜可长期</div>
+        <h1>我帮助客户把「语言与日本本地资源」变成可落地的结果。</h1>
+        <p class="subtitle">
+          这里写一句更具体的定位：例如「面向中国与马来西亚客户的日本地接包车与商务对接；中日英三语翻译；跨境产品销售闭环」。
+        </p>
+
+        <div class="badges">
+          <span class="badge">中⇄日⇄英</span>
+          <span class="badge">东京/关东｜可出差</span>
+          <span class="badge">旅游/商务/采购对接</span>
+          <span class="badge">结果导向｜流程化交付</span>
+        </div>
+
+        <div class="cta">
+          <a class="btn primary" href="#contact">联系我（微信/邮箱）</a>
+          <a class="btn" href="#work">看案例</a>
+          <a class="btn" href="https://github.com/" target="_blank" rel="noreferrer">GitHub（可选）</a>
+        </div>
+
+        <div style="margin-top:16px" class="small">
+          提示：你可以把这段改成「一句承诺 + 三个强证据」。例如：平均回复时长、交付周期、客户评价等。
+        </div>
+      </section>
+
+      <aside class="card hero-side" aria-label="关键信息">
+        <div class="mini">
+          <div class="row">
+            <div>
+              <div class="label">所在</div>
+              <div class="value">日本｜东京</div>
+            </div>
+            <div class="label">可服务范围</div>
+          </div>
+          <div class="row">
+            <div>
+              <div class="label">核心服务</div>
+              <div class="value">翻译 / 地接 / 对接</div>
+            </div>
+            <div class="label">可按项目/按天</div>
+          </div>
+          <div class="row">
+            <div>
+              <div class="label">常见客户</div>
+              <div class="value">中国 / 马来西亚</div>
+            </div>
+            <div class="label">可开票/合同（可选）</div>
+          </div>
+          <div class="row">
+            <div>
+              <div class="label">响应</div>
+              <div class="value">24h 内回复</div>
+            </div>
+            <div class="label">紧急可加急</div>
+          </div>
+          <div class="row">
+            <div>
+              <div class="label">语言</div>
+              <div class="value">中文 / 日语 / 英语</div>
+            </div>
+            <div class="label">可做三语材料</div>
+          </div>
+        </div>
+      </aside>
+    </div>
+
+    <!-- SERVICES -->
+    <section id="services">
+      <div class="section-title">
+        <h2>服务</h2>
+        <div class="hint">你可以按自己的业务删减或重排</div>
+      </div>
+      <div class="grid">
+        <div class="card item">
+          <h3>中日英翻译（商务/生活/旅游）</h3>
+          <p>合同/邮件/对话口译/文案本地化。按字数、按小时或按项目计费。可提供术语表与风格指南。</p>
+          <div class="tagrow">
+            <span class="tag">口译</span><span class="tag">笔译</span><span class="tag">本地化</span>
+          </div>
+        </div>
+        <div class="card item">
+          <h3>日本地接包车与行程落地</h3>
+          <p>机场接送、定制路线、商务随行。强调时间管理、风险预案与高确定性体验。</p>
+          <div class="tagrow">
+            <span class="tag">东京/关东</span><span class="tag">多日行程</span><span class="tag">高端接待</span>
+          </div>
+        </div>
+        <div class="card item">
+          <h3>跨境采购/资源对接</h3>
+          <p>帮你找到日本供应链与本地资源，做需求澄清、报价对比、沟通谈判与交付验收。</p>
+          <div class="tagrow">
+            <span class="tag">供应链</span><span class="tag">谈判</span><span class="tag">交付</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WORK -->
+    <section id="work">
+      <div class="section-title">
+        <h2>案例与作品</h2>
+        <div class="hint">用「问题—方法—结果」来写，可信度最高</div>
+      </div>
+
+      <div class="two">
+        <div class="card item">
+          <h3>案例 01：三语材料制作与客户转化</h3>
+          <p>
+            将产品信息整理成中/日/英三语版本，统一术语与卖点表达；并提供跟进话术与FAQ，提高转化效率。
+          </p>
+          <div class="tagrow"><span class="tag">三语</span><span class="tag">销售支持</span><span class="tag">SOP</span></div>
+        </div>
+
+        <div class="card item">
+          <h3>案例 02：日本行程落地（多城市）</h3>
+          <p>
+            根据客人偏好与预算做路线与时间切片，预留不可控变量（天气/拥堵/排队），并提供备选方案。
+          </p>
+          <div class="tagrow"><span class="tag">行程设计</span><span class="tag">风险预案</span><span class="tag">体验</span></div>
+        </div>
+
+        <div class="card item">
+          <h3>作品集链接（可选）</h3>
+          <p>
+            你可以放：小红书/公众号/Notion/Google Drive/作品PDF。没有也没关系，先用案例文字即可。
+          </p>
+          <div class="tagrow"><span class="tag">链接位</span><span class="tag">下载位</span><span class="tag">展示</span></div>
+        </div>
+
+        <div class="card item">
+          <h3>客户评价（建议做）</h3>
+          <p>
+            放 3–6 条短评 + 国家/城市 + 服务类型。真实、可验证，比长文更强。
+          </p>
+          <div class="tagrow"><span class="tag">口碑</span><span class="tag">可信</span><span class="tag">转化</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="section-title">
+        <h2>关于我</h2>
+        <div class="hint">建议：少形容词，多事实与方法论</div>
+      </div>
+
+      <div class="two">
+        <div class="card item">
+          <h3>我是谁</h3>
+          <p>
+            这里写你的简历主线：你在日本的工作背景、擅长领域、服务过的客户类型、你为什么能做得更好。
+            尽量用量化信息：例如“每月服务 X 组客户”“累计里程/累计翻译量”等。
+          </p>
+        </div>
+
+        <div class="card item">
+          <h3>我的工作方式</h3>
+          <div class="list" style="margin-top:10px">
+            <div class="li"><div class="dot"></div><div><b>先澄清需求</b><div class="small">目标、预算、时间、禁忌、优先级；把不确定变成可执行。</div></div></div>
+            <div class="li"><div class="dot"></div><div><b>再给方案与报价</b><div class="small">至少两档方案；透明说明成本结构与可替代选项。</div></div></div>
+            <div class="li"><div class="dot"></div><div><b>最后交付与复盘</b><div class="small">交付物可复用；沉淀SOP，降低你下次成本。</div></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="section-title">
+        <h2>联系我</h2>
+        <div class="hint">建议：提供一个“最省事”的联系入口</div>
+      </div>
+
+      <div class="contact">
+        <div class="card">
+          <h3 style="margin:0 0 10px">快速沟通</h3>
+          <p class="small" style="margin:0 0 12px">
+            你可以把下面信息改成你的真实联系方式。为减少来回沟通，建议你发我：需求/时间/地点/人数/预算。
+          </p>
+
+          <div class="list">
+            <div class="li">
+              <div class="dot"></div>
+              <div>
+                <div class="label">微信</div>
+                <div class="value">your_wechat_id</div>
+              </div>
+            </div>
+            <div class="li">
+              <div class="dot"></div>
+              <div>
+                <div class="label">邮箱</div>
+                <div class="value"><a class="link" href="mailto:you@example.com">you@example.com</a></div>
+              </div>
+            </div>
+            <div class="li">
+              <div class="dot"></div>
+              <div>
+                <div class="label">WhatsApp（可选）</div>
+                <div class="value"><a class="link" href="https://wa.me/8190XXXXXXXX" target="_blank" rel="noreferrer">+81 90-XXXX-XXXX</a></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3 style="margin:0 0 10px">微信二维码</h3>
+          <div class="qrbox">
+            <div class="qr" id="qrPlace">放二维码图片</div>
+            <div>
+              <div class="small">
+                把二维码图片命名为 <b>wechat-qr.png</b>，与 index.html 放在同一目录，
+                然后取消下方注释即可显示。
+              </div>
+              <div class="small" style="margin-top:10px">
+                也可以把二维码换成「预约表单」链接（例如 Google Form / Notion Form），更利于筛选高意向客户。
+              </div>
+            </div>
+          </div>
+
+          <!-- 取消注释并确保文件存在即可显示 -->
+          <!--
+          <div style="margin-top:12px">
+            <img src="wechat-qr.png" alt="微信二维码" style="width:160px;height:160px;border-radius:18px;border:1px solid var(--line);" />
+          </div>
+          -->
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div style="display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap;">
+        <div>© <span id="year"></span> 你的名字. All rights reserved.</div>
+        <div>Made with a clean, fast, single-page layout.</div>
+      </div>
+    </footer>
+  </main>
+
+  <!-- Mobile quick nav -->
+  <div class="mobilebar" aria-hidden="false">
+    <div class="inner">
+      <a href="#services">服务</a>
+      <a href="#work">案例</a>
+      <a href="#about">关于</a>
+      <a href="#contact">联系</a>
+    </div>
+  </div>
+
+  <script>
+    // Theme toggle with localStorage
+    const key = "site_theme";
+    const root = document.documentElement;
+    const btn = document.getElementById("themeBtn");
+
+    function setTheme(t){
+      root.setAttribute("data-theme", t);
+      localStorage.setItem(key, t);
+      btn.textContent = (t === "light") ? "深色" : "浅色";
+    }
+    const saved = localStorage.getItem(key);
+    if(saved){
+      setTheme(saved);
+    }else{
+      // prefer system
+      const prefersLight = window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches;
+      setTheme(prefersLight ? "light" : "dark");
+    }
+    btn.addEventListener("click", () => {
+      const cur = root.getAttribute("data-theme") || "dark";
+      setTheme(cur === "light" ? "dark" : "light");
+    });
+
+    // year
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
