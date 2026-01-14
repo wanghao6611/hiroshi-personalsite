@@ -211,6 +211,9 @@
     .mobilebar a{flex:1; text-align:center; padding:10px 10px; border-radius:14px; border:1px solid var(--line); color:var(--muted); font-weight:800; font-size:13px;}
     .mobilebar a:hover{color:var(--text)}
     @media (max-width: 880px){ .mobilebar{display:block} }
+    /* 暂时隐藏「案例与作品」区块 */
+#work { display: none !important; }
+
   </style>
 </head>
 
@@ -227,7 +230,7 @@
 
       <nav class="nav-links" aria-label="主导航">
   <a href="#services" data-i18n="nav.services">服务</a>
-  <a href="#work" data-i18n="nav.work">案例</a>
+  <!-- <a href="#work" data-i18n="nav.work">案例</a> -->
   <a href="#about" data-i18n="nav.about">关于</a>
   <a href="#contact" data-i18n="nav.contact">联系</a>
 </nav>
@@ -406,7 +409,7 @@
         </div>
       </div>
     </section>
-WORK HIDDEN -->
+
     <!-- ABOUT -->
     <section id="about">
       <div class="section-title">
@@ -744,6 +747,7 @@ if (copyBtn) {
   </script>
 </body>
 </html>
+
 
 
 
